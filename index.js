@@ -10,11 +10,12 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.json(
         {
-            message: "Bienvenido a Mi Servicio de Ciudades",
+            message: "Bienvenido al Servicio de Ciudades Colombianas",
             version: "1.0.0",
-            description: "Un servicio web para consultar información sobre ciudades y departamentos.",
-            documentation: "https://example.com/documentation",
-            github_repository: "https://github.com/tu-usuario/tu-repositorio"
+            description: "Un servicio web para consultar información sobre ciudades y departamentos de Colombia.",
+            autor: "Juan Vcente Reyes - juanvidev1",
+            documentation: "En proceso",
+            github_repository: "https://github.com/juanvidev1/colombianCities"
         }
     );
 });

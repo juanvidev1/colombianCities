@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
             message: "Bienvenido al Servicio de Ciudades Colombianas",
             version: "1.0.0",
             description: "Un servicio web para consultar información sobre ciudades y departamentos de Colombia.",
-            autor: "Juan Vcente Reyes - juanvidev1",
+            author: "Juan Vcente Reyes - juanvidev1",
             documentation: "En proceso",
             github_repository: "https://github.com/juanvidev1/colombianCities"
         }

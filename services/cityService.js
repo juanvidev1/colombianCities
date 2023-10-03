@@ -2,7 +2,7 @@ const citiesOfColombia = require("../colombiaCities.json");
 
 class CityService {
 
-    getCityByName(cityName, departmentName = '') {
+    getCityByName(cityName) {
         cityName = cityName.toLowerCase();
         console.log(cityName);
 
@@ -36,21 +36,23 @@ class CityService {
     }
 
     getCitiesByDepartment(departmentName) {
+        let response = '';
         departmentName = departmentName.toLowerCase();
         const department = citiesOfColombia.filter(cityObj => {
             return cityObj.departamento.toLowerCase() === departmentName;
         });
-        console.log(department[0]);
         
         if (department[0] != null) {
-            console.log(department[0].ciudades);
+            response = {
+                cities: department[0].ciudades
+            };
         } else {
-            console.log('El departamento no existe');
+            response = {
+                error: 'El departamento no existe'
+            };
         }
 
-        // let response = department[0].ciudades;
-
-        // return response;
+        return response;
     }
  
 

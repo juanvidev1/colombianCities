@@ -1294,5 +1294,13 @@
             "Puerto Carre\u00f1o",
             "Santa Rosal\u00eda"
         ]
+    },
+    {
+        "id":32,
+        "departamento": "Archipi\u00e9lago de San Andr\u00e9s, Providencia y Santa Catalina",
+        "ciudades":[
+            "San Andr\u00e9s",
+            "Providencia y Santa Catalina"
+        ]
     }
 ]

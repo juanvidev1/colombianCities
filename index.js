@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
-const router = express.Router();
-const colombiaCitiesList = require('./colombiaCities.json');
+const routerApi = require('./routes');
+// const colombiaCitiesList = require('./colombiaCities.json');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -17,8 +17,11 @@ app.get('/', (req, res) => {
             documentation: "En proceso",
             github_repository: "https://github.com/juanvidev1/colombianCities"
         }
+
     );
 });
+
+routerApi(app);
 
 app.listen(PORT, () => {
     console.log('Server running on port ' + PORT);

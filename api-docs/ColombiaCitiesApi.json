@@ -41,7 +41,6 @@
                 "responses": {
                     "200": {
                         "description": "Retrieves an array of cities and the respective province"
-
                     }
                 }
             }

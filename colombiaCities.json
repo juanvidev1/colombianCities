@@ -2,9 +2,18 @@
     {  
         "id":0,
         "departamento":"Amazonas",
-        "ciudades":[  
+        "ciudades":[
+            "El Encanto",
+            "La Chorrera",
+            "La Pedrera",
+            "La Victoria",
             "Leticia",
-            "Puerto Nari\u00f1o"
+            "Mirit\u00ed",
+            "Puerto Alegr\u00eda",
+            "Puerto Arica",
+            "Puerto Nari\u00f1o",
+            "Puerto Santander",
+            "Tarapac\u00e1"
         ]
     },
     {  

@@ -8,6 +8,10 @@ class CityService {
         this.cityNormalizer = new CityNormalizer();
     }
 
+    getCities() {
+        return this.cities; 
+    }
+
     findCitiesByName(cityName) {
         const normalizedCityName = this.cityNormalizer.normalizeCityName(cityName);
         // console.log(cityName);

@@ -18,10 +18,8 @@ router.get('/', async (req, res) => {
         result = await cityService.getCitiesByProvince(provinceName);
         return res.json(result);
     } else {
-        return res.json({
-            message: "You haven't passed any parameter",
-            mensaje: "No has pasado ningún parámetro"
-        })
+        result = await cityService.getCities();
+        return res.json(result);
     }
 });
 

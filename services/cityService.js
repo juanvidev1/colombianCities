@@ -1,58 +1,58 @@
 const citiesOfColombia = require("../colombiaCities.json");
+const CityNormalizer = require('./cityNormalizer');
 
 class CityService {
 
-    getCityByName(cityName) {
-        cityName = cityName.toLowerCase();
-        console.log(cityName);
-
-        const cities = citiesOfColombia.filter(cityObj => {
-            return cityObj.ciudades.some(city => city.toLowerCase().includes(cityName));
-        });
-
-        
-        let foundDepartment = '';
-        let foundCity = '';
-        for (let i = 0; i < cities.length; i++) {
-
-            for (let j = 0; j < cities[i].ciudades.length; j++) {
-                if (cities[i].ciudades[j].toLowerCase() === cityName) {
-                    foundDepartment = cities[i].departamento;
-                    foundCity = cities[i].ciudades[j];
-                    break;
-                } else {
-                    foundDepartment = 'El departamento no existe';
-                    foundCity = 'La ciudad no existe';
-                }
-            }
-        }
-
-        const response = {
-            department: foundDepartment,
-            city: foundCity
-        }
-
-        return response;
+    constructor () {
+        this.cities = citiesOfColombia;
+        this.cityNormalizer = new CityNormalizer();
     }
 
-    getCitiesByDepartment(departmentName) {
-        let response = '';
-        departmentName = departmentName.toLowerCase();
-        const department = citiesOfColombia.filter(cityObj => {
-            return cityObj.departamento.toLowerCase() === departmentName;
+    getCities() {
+        return this.cities; 
+    }
+
+    findCitiesByName(cityName) {
+        const normalizedCityName = this.cityNormalizer.normalizeCityName(cityName);
+        // console.log(cityName);
+        const matchingCities = [];
+
+        this.cities.forEach(province => {
+            const provinceName = province.departamento;
+            province.ciudades.forEach(city => {
+                const normalizedCity = this.cityNormalizer.normalizeCityName(city);
+                if (normalizedCity.includes(normalizedCityName)) {
+                    matchingCities.push({
+                        province: provinceName,
+                        city: city
+                    });
+                }
+            });
         });
-        
-        if (department[0] != null) {
-            response = {
-                cities: department[0].ciudades
-            };
-        } else {
-            response = {
-                error: 'El departamento no existe'
-            };
+
+        const result = {
+            data: matchingCities
         }
 
-        return response;
+        return result;
+    }
+
+    getCitiesByProvince(provinceName) {
+        const normalizedprovinceName = this.cityNormalizer.normalizeCityName(provinceName);
+        const matchingCities = [];
+
+        this.cities.forEach(province => {
+            const normalizedprovince = this.cityNormalizer.normalizeCityName(province.departamento);
+            if (normalizedprovince.includes(normalizedprovinceName)) {
+                matchingCities.push(...province.ciudades);
+            } 
+        });
+
+        const result = {
+            data: matchingCities
+        }
+
+        return result;
     }
  
 

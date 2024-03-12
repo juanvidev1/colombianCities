@@ -1,0 +1,50 @@
+{
+    "openapi":"3.0.2",
+    "info": {
+      "title":"Colombia cities",
+      "version":"1.0"
+    },
+    "servers": [
+        {
+            "url":"https://colombian-cities.onrender.com/api/v1",
+            "description": "Production server"
+        },
+        {
+            "url":"http://localhost:4000/api/v1",
+            "description": "Dev server - Local"
+        }
+    ],
+    "paths": {
+        "/cities": {
+            "get": {
+                "description": "This is the only endpoint of this api",
+                "parameters": [
+                    {
+                        "name": "cityName",
+                        "in": "query",
+                        "description": "Name of the city of a part of it",
+                        "required": false,
+                        "schema":{
+                            "type":"string"
+                        }
+                    },
+                    {
+                        "name": "provinceName",
+                        "in": "query",
+                        "description": "Name of the province to retrieve a list of it's cities",
+                        "required": false,
+                        "schema":{
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retrieves an array of cities and the respective province"
+                    }
+                }
+            }
+        }
+        
+    }
+  }

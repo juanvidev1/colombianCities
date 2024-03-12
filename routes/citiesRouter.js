@@ -9,17 +9,17 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
     cityName = req.query.cityName;
-    departmentName = req.query.departmentName;
+    provinceName = req.query.provinceName;
+    
     if (cityName) {
-        result = await cityService.getCityByName(cityName, departmentName);
+        result = await cityService.findCitiesByName(cityName, provinceName);
         return res.json(result);
-    } else if(departmentName){
-        result = await cityService.getCitiesByDepartment(departmentName);
+    } else if(provinceName){
+        result = await cityService.getCitiesByProvince(provinceName);
         return res.json(result);
     } else {
-        return res.json({
-            message: 'La ciudad o el departamento no existen'
-        })
+        result = await cityService.getCities();
+        return res.json(result);
     }
 });
 

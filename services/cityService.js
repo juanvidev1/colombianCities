@@ -54,6 +54,16 @@ class CityService {
 
         return result;
     }
+
+    getProvinces() {
+        let provinces = [];
+        this.cities.forEach(province => { 
+            provinces.push(province.departamento);
+        })
+        return {
+            data: provinces,
+        }
+    }
  
 
 }

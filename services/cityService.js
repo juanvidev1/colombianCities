@@ -38,7 +38,7 @@ class CityService {
       provincia: city.provincia,
       value: this.normalizeName(city.municipio)
     }));
-    return { data: matchingCities };
+    return matchingCities;
   }
 
 

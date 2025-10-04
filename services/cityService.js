@@ -1,12 +1,9 @@
 const colombiaData = require("../colombia_completa.json");
-const CityNormalizer = require("./cityNormalizer");
+// Eliminado CityNormalizer, ya no es necesario
 const Client = require("../Client");
 
 class CityService {
-  constructor() {
-    this.cityNormalizer = new CityNormalizer();
-    // No se necesita Client ni this.cities
-  }
+  constructor() {}
 
 
   // Devuelve todas las ciudades como un array plano de objetos {departamento, municipio, codigo, provincia}
@@ -22,11 +19,19 @@ class CityService {
   }
 
 
+  // Normaliza para búsqueda insensible a tildes y mayúsculas
+  normalize(str) {
+    return str
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
+  }
+
   async findCitiesByName(cityName) {
-    const normalizedCityName = this.cityNormalizer.normalizeCityName(cityName);
+    const term = this.normalize(cityName);
     const allCities = this.getAllCities();
     const matchingCities = allCities.filter(city =>
-      this.cityNormalizer.normalizeCityName(city.municipio).includes(normalizedCityName)
+      this.normalize(city.municipio).includes(term)
     ).map(city => ({
       province: city.departamento,
       city: city.municipio,
@@ -38,16 +43,16 @@ class CityService {
 
 
   async getCitiesByProvince(provinceName) {
-    const normalizedProvince = this.cityNormalizer.normalizeCityName(provinceName);
+    const term = this.normalize(provinceName);
     const allCities = this.getAllCities();
     const matchingCities = allCities.filter(city =>
-      this.cityNormalizer.normalizeCityName(city.departamento).includes(normalizedProvince)
+      this.normalize(city.departamento).includes(term)
     ).map(city => ({
       name: city.municipio,
       code: city.codigo,
       province: city.departamento,
       provincia: city.provincia,
-      value: this.cityNormalizer.normalizeCityName(city.municipio)
+      value: this.normalize(city.municipio)
     }));
     return matchingCities;
   }
@@ -58,7 +63,7 @@ class CityService {
     return colombiaData.departamentos.map((dept, idx) => ({
       id: dept.id,
       name: dept.nombre,
-      value: this.cityNormalizer.normalizeCityName(dept.nombre),
+      value: this.normalize(dept.nombre),
       code: dept.id // No hay código DANE de departamento en el JSON, se puede agregar si es necesario
     }));
   }

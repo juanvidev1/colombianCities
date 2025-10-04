@@ -1,8 +1,24 @@
-# 🇨🇴 Colombian Cities API & Data
+Po# 🇨🇴 Colombian Cities API & Data
 
-![node version](https://img.shields.io/badge/node_version-16.17.1-green) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+![node version](https://img.shields.io/badge/node_version-16.17.1-green) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Servicio web y base de datos completa de **departamentos**, **municipios**, **códigos DANE** y **provincias** de Colombia. Este proyecto proporciona datos actualizados y una API REST para desarrolladores que necesiten información geográfica colombiana.
+**API abierta, profesional y de uso continuo para toda la comunidad.**
+
+Esta API provee acceso libre y permanente a la base de datos oficial de **departamentos**, **municipios**, **códigos DANE** y **provincias** de Colombia. Pensada para integraciones en sistemas, apps, bots, análisis de datos y cualquier proyecto que requiera información geográfica confiable y actualizada.
+
+---
+
+## ✨ Características principales
+
+- **Acceso libre y sin registro**
+- **Datos oficiales y actualizados**
+- **33 departamentos y 1,119 municipios**
+- **Códigos DANE y provincias organizadas**
+- **API REST robusta y documentada**
+- **Listo para producción y uso masivo**
+- **Colaborativo y open source**
+
+---
 
 ## 📊 Datos Incluidos
 
@@ -35,11 +51,8 @@ PORT=3000
 
 ## 📁 Archivos de Datos
 
-### `colombia_completa.json` ⭐ (Recomendado)
-Archivo completo con metadata, departamentos, municipios, códigos DANE y provincias organizadas.
-
-### `colombia_con_codigos.json`  
-Versión simplificada optimizada para aplicaciones web y móviles.
+- `colombia_completa.json` ⭐ (Recomendado): Datos completos con metadata, departamentos, municipios, códigos DANE y provincias.
+- `colombia_con_codigos.json`: Versión simplificada optimizada para aplicaciones web y móviles.
 
 Ver documentación completa en: [`DOCUMENTACION_COMPLETA.md`](./DOCUMENTACION_COMPLETA.md)
 
@@ -53,55 +66,60 @@ http://localhost:5000/api/v1/cities
 ### Buscar por Nombre de Ciudad
 ```bash
 GET /api/v1/cities?cityName=medellin
-
-# Respuesta:
-{
-  "data": [
-    {
-      "province": "Antioquia",
-      "city": "Medellín"
-    }
-  ]
-}
 ```
 
 ### Buscar por Departamento
 ```bash
 GET /api/v1/cities?provinceName=antioquia
+```
 
-# Respuesta:
+### Ejemplo de Respuesta
+```json
 {
   "data": [
-    "Medellín",
-    "Bello",
-    "Itagüí",
-    "..."
+    { "province": "Antioquia", "city": "Medellín", "code": "05001", "provincia": "Valle Del Aburra" },
+    ...
   ]
 }
 ```
 
-## 💡 Ejemplos de Uso
-
-### JavaScript/Node.js
-```javascript
-// Cargar datos completos
+### Ejemplo de Uso en Node.js
+```js
 const colombiaData = require('./colombia_completa.json');
-
-// Buscar municipio por código DANE
 const medellin = colombiaData.departamentos
   .flatMap(d => d.municipios)
   .find(m => m.codigo === '05001');
-
 console.log(medellin);
 // { nombre: "Medellín", codigo: "05001", provincia: "Valle Del Aburra" }
 ```
 
-### Consulta API
-```javascript
-fetch('http://localhost:5000/api/v1/cities?cityName=bogota')
-  .then(response => response.json())
-  .then(data => console.log(data));
+## 📦 Uso como paquete npm
+
+Puedes instalar y usar los datos y utilidades directamente en tu proyecto Node.js:
+
+### Instalación local (desarrollo)
+```bash
+npm install colombiacitiesapi
 ```
+
+### Ejemplo de uso
+```js
+const { getDepartments, getCitiesByDepartment, findCityByCode, searchCities } = require('colombiacitiesapi');
+
+// Listar departamentos
+console.log(getDepartments());
+
+// Buscar municipios de un departamento
+console.log(getCitiesByDepartment('Antioquia'));
+
+// Buscar municipio por código DANE
+console.log(findCityByCode('05001'));
+
+// Buscar municipios por nombre
+console.log(searchCities('medellin'));
+```
+
+Esto permite consumir los datos sin depender de la API web, ideal para proyectos offline, scripts, bots o integración directa.
 
 ## 📂 Estructura del Proyecto
 
@@ -119,13 +137,13 @@ colombianCities/
 
 ## 🤝 Contribuciones
 
-Este es un proyecto open source. Las contribuciones son bienvenidas:
+Este proyecto es open source y agradece cualquier contribución:
 
-1. Fork del repositorio
-2. Crear rama feature (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit cambios (`git commit -am 'Agregar nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Crear Pull Request
+1. Haz un fork del repositorio
+2. Crea una rama feature (`git checkout -b feature/nueva-funcionalidad`)
+3. Realiza tus cambios y haz commit (`git commit -am 'Agrega nueva funcionalidad'`)
+4. Haz push a tu rama (`git push origin feature/nueva-funcionalidad`)
+5. Abre un Pull Request
 
 ## 📄 Licencia
 
@@ -133,7 +151,7 @@ MIT License - ver archivo [LICENSE](LICENSE) para más detalles.
 
 ---
 
-*Datos oficiales de Colombia actualizados - Octubre 2025* 🇨🇴
+*API y datos oficiales de Colombia, listos para uso profesional y continuo. Actualizado Octubre 2025.* 🇨🇴
 
 Try this Web Service and just send me an email to juanvidev1@gmail.com if you want to collaborate to add more countries and cities or if you have some advices to make better this WS.
 

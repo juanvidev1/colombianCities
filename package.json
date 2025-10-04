@@ -1,8 +1,8 @@
 {
   "name": "colombiacitiesapi",
   "version": "1.0.0",
-  "description": "A package to consult and show Colombia cities and departmens (states) through an api",
-  "main": "index.js",
+  "description": "API y paquete npm para consultar departamentos, municipios, códigos DANE y provincias de Colombia. Úsalo como servicio web o como librería local en Node.js.",
+  "main": "lib/index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
@@ -10,10 +10,14 @@
   },
   "keywords": [
     "Colombia",
-    "cities",
-    "departments",
-    "states",
-    "api"
+    "ciudades",
+    "departamentos",
+    "municipios",
+    "provincias",
+    "DANE",
+    "api",
+    "npm",
+    "open data"
   ],
   "author": "juanvidev1",
   "license": "MIT",

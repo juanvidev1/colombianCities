@@ -32,10 +32,11 @@ class CityService {
     const matchingCities = allCities.filter(city =>
       this.normalizeName(city.municipio).includes(normalizedCityName)
     ).map(city => ({
-      departamento: city.departamento,
-      city: city.municipio,
+      province: city.departamento,
+      name: city.municipio,
       code: city.codigo,
-      provincia: city.provincia
+      provincia: city.provincia,
+      value: this.normalizeName(city.municipio)
     }));
     return { data: matchingCities };
   }

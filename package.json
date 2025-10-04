@@ -1,5 +1,5 @@
 {
-  "name": "colombiacitiesapi",
+  "name": "colombia-cities",
   "version": "1.0.0",
   "description": "API y paquete npm para consultar departamentos, municipios, códigos DANE y provincias de Colombia. Úsalo como servicio web o como librería local en Node.js.",
   "main": "lib/index.js",

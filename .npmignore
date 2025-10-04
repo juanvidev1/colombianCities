@@ -1,0 +1,14 @@
+# Ignorar archivos y carpetas innecesarios para el paquete npm
+node_modules/
+.git/
+.gitignore
+.env
+api-docs/
+routes/
+services/
+tests/
+README.md
+DOCUMENTACION_COMPLETA.md
+index.js
+Client.js
+package-lock.json

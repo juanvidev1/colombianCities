@@ -13,6 +13,7 @@
     {
       "id": 0,
       "nombre": "Amazonas",
+      "codigo": "91",
       "totalMunicipios": 11,
       "municipios": [
         {
@@ -127,6 +128,7 @@
     {
       "id": 1,
       "nombre": "Antioquia",
+      "codigo": "05",
       "totalMunicipios": 125,
       "municipios": [
         {
@@ -1315,6 +1317,7 @@
     {
       "id": 2,
       "nombre": "Arauca",
+      "codigo": "81",
       "totalMunicipios": 7,
       "municipios": [
         {
@@ -1393,6 +1396,7 @@
     {
       "id": 3,
       "nombre": "Archipiélago De San Andrés",
+      "codigo": "88",
       "totalMunicipios": 2,
       "municipios": [
         {
@@ -1432,6 +1436,7 @@
     {
       "id": 4,
       "nombre": "Atlántico",
+      "codigo": "08",
       "totalMunicipios": 23,
       "municipios": [
         {
@@ -1672,6 +1677,7 @@
     {
       "id": 5,
       "nombre": "Bogotá D.C.",
+      "codigo": "11",
       "totalMunicipios": 1,
       "municipios": [
         {
@@ -1696,6 +1702,7 @@
     {
       "id": 6,
       "nombre": "Bolivar",
+      "codigo": "13",
       "totalMunicipios": 45,
       "municipios": [
         {
@@ -2146,6 +2153,7 @@
     {
       "id": 7,
       "nombre": "Boyacá",
+      "codigo": "15",
       "totalMunicipios": 123,
       "municipios": [
         {
@@ -3340,6 +3348,7 @@
     {
       "id": 8,
       "nombre": "Caldas",
+      "codigo": "17",
       "totalMunicipios": 27,
       "municipios": [
         {
@@ -3628,6 +3637,7 @@
     {
       "id": 9,
       "nombre": "Caquetá",
+      "codigo": "18",
       "totalMunicipios": 16,
       "municipios": [
         {
@@ -3787,6 +3797,7 @@
     {
       "id": 10,
       "nombre": "Casanare",
+      "codigo": "85",
       "totalMunicipios": 19,
       "municipios": [
         {
@@ -3973,6 +3984,7 @@
     {
       "id": 11,
       "nombre": "Cauca",
+      "codigo": "19",
       "totalMunicipios": 41,
       "municipios": [
         {
@@ -4381,6 +4393,7 @@
     {
       "id": 12,
       "nombre": "Cesar",
+      "codigo": "20",
       "totalMunicipios": 25,
       "municipios": [
         {
@@ -4639,6 +4652,7 @@
     {
       "id": 13,
       "nombre": "Choco",
+      "codigo": "27",
       "totalMunicipios": 31,
       "municipios": [
         {
@@ -4957,6 +4971,7 @@
     {
       "id": 14,
       "nombre": "Córdoba",
+      "codigo": "23",
       "totalMunicipios": 28,
       "municipios": [
         {
@@ -5260,6 +5275,7 @@
     {
       "id": 15,
       "nombre": "Cundinamarca",
+      "codigo": "25",
       "totalMunicipios": 116,
       "municipios": [
         {
@@ -6403,6 +6419,7 @@
     {
       "id": 16,
       "nombre": "Guainía",
+      "codigo": "94",
       "totalMunicipios": 9,
       "municipios": [
         {
@@ -6499,6 +6516,7 @@
     {
       "id": 17,
       "nombre": "Guaviare",
+      "codigo": "95",
       "totalMunicipios": 4,
       "municipios": [
         {
@@ -6550,6 +6568,7 @@
     {
       "id": 18,
       "nombre": "Huila",
+      "codigo": "41",
       "totalMunicipios": 37,
       "municipios": [
         {
@@ -6916,6 +6935,7 @@
     {
       "id": 19,
       "nombre": "La Guajira",
+      "codigo": "44",
       "totalMunicipios": 15,
       "municipios": [
         {
@@ -7072,6 +7092,7 @@
     {
       "id": 20,
       "nombre": "Magdalena",
+      "codigo": "47",
       "totalMunicipios": 30,
       "municipios": [
         {
@@ -7381,6 +7402,7 @@
     {
       "id": 21,
       "nombre": "Meta",
+      "codigo": "50",
       "totalMunicipios": 29,
       "municipios": [
         {
@@ -7675,6 +7697,7 @@
     {
       "id": 22,
       "nombre": "Nariño",
+      "codigo": "52",
       "totalMunicipios": 64,
       "municipios": [
         {
@@ -8290,6 +8313,7 @@
     {
       "id": 23,
       "nombre": "Norte De Santander",
+      "codigo": "54",
       "totalMunicipios": 40,
       "municipios": [
         {
@@ -8695,6 +8719,7 @@
     {
       "id": 24,
       "nombre": "Putumayo",
+      "codigo": "86",
       "totalMunicipios": 13,
       "municipios": [
         {
@@ -8827,6 +8852,7 @@
     {
       "id": 25,
       "nombre": "Quindío",
+      "codigo": "63",
       "totalMunicipios": 12,
       "municipios": [
         {
@@ -8974,6 +9000,7 @@
     {
       "id": 26,
       "nombre": "Risaralda",
+      "codigo": "66",
       "totalMunicipios": 14,
       "municipios": [
         {
@@ -9127,6 +9154,7 @@
     {
       "id": 27,
       "nombre": "Santander",
+      "codigo": "68",
       "totalMunicipios": 87,
       "municipios": [
         {
@@ -9955,6 +9983,7 @@
     {
       "id": 28,
       "nombre": "Sucre",
+      "codigo": "70",
       "totalMunicipios": 26,
       "municipios": [
         {
@@ -10228,6 +10257,7 @@
     {
       "id": 29,
       "nombre": "Tolima",
+      "codigo": "73",
       "totalMunicipios": 47,
       "municipios": [
         {
@@ -10696,6 +10726,7 @@
     {
       "id": 30,
       "nombre": "Valle Del Cauca",
+      "codigo": "76",
       "totalMunicipios": 42,
       "municipios": [
         {
@@ -11113,6 +11144,7 @@
     {
       "id": 31,
       "nombre": "Vaupés",
+      "codigo": "97",
       "totalMunicipios": 6,
       "municipios": [
         {
@@ -11182,6 +11214,7 @@
     {
       "id": 32,
       "nombre": "Vichada",
+      "codigo": "99",
       "totalMunicipios": 4,
       "municipios": [
         {

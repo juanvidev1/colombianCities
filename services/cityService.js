@@ -1,9 +1,16 @@
 const colombiaData = require("../colombia_completa.json");
-// Eliminado CityNormalizer, ya no es necesario
+// const CityNormalizer = require("./cityNormalizer");
 const Client = require("../Client");
 
 class CityService {
-  constructor() {}
+  constructor() {
+    // this.cityNormalizer = new CityNormalizer();
+    // No se necesita Client ni this.cities
+  }
+
+  normalizeName(value) {
+    return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replaceAll(/\s+/g, '_').replace(/[^a-z0-9_]/g, '');
+  }
 
 
   // Devuelve todas las ciudades como un array plano de objetos {departamento, municipio, codigo, provincia}
@@ -19,21 +26,13 @@ class CityService {
   }
 
 
-  // Normaliza para búsqueda insensible a tildes y mayúsculas
-  normalize(str) {
-    return str
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase();
-  }
-
   async findCitiesByName(cityName) {
-    const term = this.normalize(cityName);
+    const normalizedCityName = this.normalizeName(cityName);
     const allCities = this.getAllCities();
     const matchingCities = allCities.filter(city =>
-      this.normalize(city.municipio).includes(term)
+      this.normalizeName(city.municipio).includes(normalizedCityName)
     ).map(city => ({
-      province: city.departamento,
+      departamento: city.departamento,
       city: city.municipio,
       code: city.codigo,
       provincia: city.provincia
@@ -43,16 +42,16 @@ class CityService {
 
 
   async getCitiesByProvince(provinceName) {
-    const term = this.normalize(provinceName);
+    const normalizedProvince = this.normalizeName(provinceName);
     const allCities = this.getAllCities();
     const matchingCities = allCities.filter(city =>
-      this.normalize(city.departamento).includes(term)
+      this.normalizeName(city.departamento).includes(normalizedProvince)
     ).map(city => ({
       name: city.municipio,
       code: city.codigo,
       province: city.departamento,
       provincia: city.provincia,
-      value: this.normalize(city.municipio)
+      value: this.normalizeName(city.municipio)
     }));
     return matchingCities;
   }
@@ -63,8 +62,8 @@ class CityService {
     return colombiaData.departamentos.map((dept, idx) => ({
       id: dept.id,
       name: dept.nombre,
-      value: this.normalize(dept.nombre),
-      code: dept.id // No hay código DANE de departamento en el JSON, se puede agregar si es necesario
+      value: this.normalizeName(dept.nombre),
+      code: dept.codigo // No hay código DANE de departamento en el JSON, se puede agregar si es necesario
     }));
   }
 }

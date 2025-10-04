@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
     result = await cityService.getProvinces();
     return res.json(result);
   } else {
-    result = await cityService.getCities();
+    result = cityService.getAllCities();
     return res.json(result);
   }
 });

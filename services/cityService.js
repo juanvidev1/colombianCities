@@ -9,7 +9,7 @@ class CityService {
   }
 
   normalizeName(value) {
-    return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replaceAll(/\s+/g, '_').replace(/[^a-z0-9_]/g, '');
+    return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '');
   }
 
 
